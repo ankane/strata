@@ -68,8 +68,8 @@ model = CmdStan::Model.new(exe_file: "dist/bin/bernoulli")
 
 ## Portability
 
+- Linux: package on the oldest platform you support
 - Mac: models run on macOS 10.14+ by default (set `MACOSX_DEPLOYMENT_TARGET` to override)
-- Linux: compile on the oldest platform you support
 - Windows: not supported yet
 
 ## Cross-Compiling
