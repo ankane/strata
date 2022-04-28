@@ -72,6 +72,8 @@ For Mac, models run on macOS 10.14+ by default. You can set `MACOSX_DEPLOYMENT_T
 
 For Linux, compile on the oldest platform you support.
 
+Windows is not supported yet.
+
 ## Cross-Compiling
 
 Cross-compile for a different architecture (on the same OS)
