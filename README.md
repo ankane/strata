@@ -12,7 +12,7 @@ Strata is a command line tool. To install, run:
 pip install strata-cli
 ```
 
-This will give you the `strata` command.
+This will give you the `strata` command. You can also install it with [Homebrew](#homebrew).
 
 ## Getting Started
 
@@ -105,6 +105,14 @@ Create a static build (Mac only, experimental)
 
 ```sh
 strata --static ...
+```
+
+## Homebrew
+
+On Mac, you can use:
+
+```sh
+brew install ankane/brew/strata
 ```
 
 ## History
