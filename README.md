@@ -2,6 +2,8 @@
 
 :mountain: The easy way to ship Stan models
 
+Supports cross-compilation :tada:
+
 [![Build Status](https://github.com/ankane/strata/workflows/build/badge.svg?branch=master)](https://github.com/ankane/strata/actions)
 
 ## Installation
@@ -69,7 +71,7 @@ model = CmdStan::Model.new(exe_file: "dist/bin/bernoulli")
 ## Portability
 
 - Mac: models run on macOS 10.14+ by default (set `MACOSX_DEPLOYMENT_TARGET` to override)
-- Linux: compile on the oldest platform you want to support
+- Linux: compile on the oldest platform you support
 - Windows: not supported yet
 
 ## Cross-Compiling
@@ -101,7 +103,7 @@ Show build output
 strata --debug ...
 ```
 
-Create a static build (Mac only, experimental)
+Create a static build (experimental, only working on Mac)
 
 ```sh
 strata --static ...
