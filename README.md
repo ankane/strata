@@ -89,7 +89,7 @@ sudo apt install gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
 
 ## Reference
 
-Specify output directory
+Specify the output directory
 
 ```sh
 strata -o dist ...
