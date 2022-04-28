@@ -2,8 +2,6 @@
 
 :mountain: The easy way to ship Stan models
 
-Supports cross-compilation :tada:
-
 [![Build Status](https://github.com/ankane/strata/workflows/build/badge.svg?branch=master)](https://github.com/ankane/strata/actions)
 
 ## Installation
