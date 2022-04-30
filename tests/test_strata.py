@@ -52,7 +52,7 @@ class TestStrata:
         assert re.search(r'\d+\.\d+\.\d+', self.run_strata(['--version']))
 
     def run_strata(self, cmd, **kwargs):
-        return self.run_command(['python3', project_dir.joinpath('strata/__init__.py')] + cmd, **kwargs)
+        return self.run_command(['python3', str(project_dir.joinpath('strata/__init__.py'))] + cmd, **kwargs)
 
     def run_program(self, cmd):
         src = Path.home().joinpath('.cmdstan')
