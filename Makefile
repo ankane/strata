@@ -1,5 +1,5 @@
 lint:
-	pycodestyle strata --ignore=E501
+	pycodestyle . --ignore=E501
 
 publish: clean
 	python3 setup.py bdist_wheel --universal

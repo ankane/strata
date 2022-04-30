@@ -134,4 +134,8 @@ To get started with development:
 git clone https://github.com/ankane/strata.git
 cd strata
 pip install -e .
+
+# for tests
+pip install -r requirements.txt
+pytest
 ```
