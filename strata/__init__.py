@@ -16,14 +16,14 @@ host_arch = platform.machine()
 host_arm = 'arm' in host_arch or 'aarch' in host_arch
 
 # when upgrading, check CLI11 and RapidJSON licenses
-cmdstan_version = '2.29.2'
+cmdstan_version = '2.30.0'
 if host_arm and host_os == 'Linux':
     # only difference is stanc
     cmdstan_url = 'https://github.com/stan-dev/cmdstan/releases/download/v' + cmdstan_version + '/cmdstan-' + cmdstan_version + '-linux-arm64.tar.gz'
-    cmdstan_checksum = '9b7eec78e217cab39d3d794e817a1ca08f36b1e5cb434c4cd8263bb2650ba125'
+    cmdstan_checksum = '8ab1eaa83af100336e31fed1bcb854f30e7f775feb1274552fc706ed177969ef'
 else:
     cmdstan_url = 'https://github.com/stan-dev/cmdstan/releases/download/v' + cmdstan_version + '/cmdstan-' + cmdstan_version + '.tar.gz'
-    cmdstan_checksum = '567b531fa73ffdf706caa17eb3344e1dfb41e86993caf8ba40875ff910335153'
+    cmdstan_checksum = '009c2ea0043aa4a91c03ac78932e64f3cff4faa3e73413a2e0269d5be2d8de6c'
 
 
 def parse_args():
@@ -262,8 +262,9 @@ def write_output():
     copy(cmdstan_dir.joinpath('LICENSE'), licenses_dir.joinpath('cmdstan-license.txt'))
     copy(cmdstan_dir.joinpath('stan/LICENSE.md'), licenses_dir.joinpath('stan-license.txt'))
     copy(cmdstan_dir.joinpath('stan/lib/stan_math/LICENSE.md'), licenses_dir.joinpath('stan-math-license.txt'))
-    copy(cmdstan_dir.joinpath('stan/lib/stan_math/licenses/boost-license.txt'), licenses_dir.joinpath('boost-license.txt'))
-    copy(cmdstan_dir.joinpath('stan/lib/stan_math/licenses/sundials-license.txt'), licenses_dir.joinpath('sundials-license.txt'))
+    copy(cmdstan_dir.joinpath('stan/lib/stan_math/lib/boost_1.78.0/LICENSE_1_0.txt'), licenses_dir.joinpath('boost-license.txt'))
+    copy(cmdstan_dir.joinpath('stan/lib/stan_math/lib/sundials_6.1.1/LICENSE'), licenses_dir.joinpath('sundials-license.txt'))
+    copy(cmdstan_dir.joinpath('stan/lib/stan_math/lib/sundials_6.1.1/NOTICE'), licenses_dir.joinpath('sundials-notice.txt'))
     copy(cmdstan_dir.joinpath('stan/lib/stan_math/lib/eigen_3.3.9/COPYING.MPL2'), licenses_dir.joinpath('eigen-mpl2-license.txt'))
     copy(cmdstan_dir.joinpath('stan/lib/stan_math/lib/eigen_3.3.9/COPYING.BSD'), licenses_dir.joinpath('eigen-bsd-license.txt'))
     copy(tbb_dir.joinpath('LICENSE'), licenses_dir.joinpath('tbb-license.txt'))
