@@ -7,11 +7,9 @@ jobs:
       matrix:
         include:
           - python: 3.11
-            os: macos-11
-          - python: 3.8
+            os: macos-12
+          - python: 3.7
             os: ubuntu-20.04
-          - python: 3.5
-            os: ubuntu-18.04
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
