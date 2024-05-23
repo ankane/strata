@@ -2,7 +2,7 @@
 
 :mountain: The easy way to ship Stan models
 
-[![Build Status](https://github.com/ankane/strata/workflows/build/badge.svg?branch=master)](https://github.com/ankane/strata/actions)
+[![Build Status](https://github.com/ankane/strata/actions/workflows/build.yml/badge.svg)](https://github.com/ankane/strata/actions)
 
 ## Installation
 
