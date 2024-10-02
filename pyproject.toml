@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "strata-cli"
+version = "0.1.1"
+description = "The easy way to ship Stan models"
+readme = "README.md"
+authors = [
+    {name = "Andrew Kane", email = "andrew@ankane.org"}
+]
+license = {text = "BSD-3-Clause"}
+requires-python = ">= 3.5"
+
+[project.urls]
+Homepage = "https://github.com/ankane/strata"
+
+[project.scripts]
+strata = "strata:main"
+
+[tool.setuptools.package-data]
+strata = ["licenses/*"]
