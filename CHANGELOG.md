@@ -1,4 +1,4 @@
-## 0.2.0 (unreleased)
+## 0.2.0 (2024-10-01)
 
 - Added support for Mac ARM without cross-compiling
 - Updated CmdStan to 2.35.0
