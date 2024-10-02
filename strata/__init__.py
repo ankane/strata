@@ -58,8 +58,8 @@ def check_args(args):
 
 
 def check_cross_compile():
-    if host_arm:
-        stop('Cannot cross-compile on ARM yet')
+    if host_arm and host_os != 'Darwin':
+        stop('Cannot cross-compile on Linux ARM yet')
 
     if host_os == 'Linux':
         if not shutil.which('aarch64-linux-gnu-gcc') or not shutil.which('aarch64-linux-gnu-g++'):
@@ -122,9 +122,14 @@ def build_tbb():
     ]
     if args.cross_compile:
         if host_os == 'Darwin':
-            tbb_args.append('arch=arm64')
-            tbb_args.append('CONLY=gcc -target arm64-apple-macos11')
-            tbb_args.append('CPLUS=g++ -target arm64-apple-macos11')
+            if host_arm:
+                tbb_args.append('arch=x86_64')
+                tbb_args.append('CONLY=gcc -target x86_64-apple-macos10.14')
+                tbb_args.append('CPLUS=g++ -target x86_64-apple-macos10.14')
+            else:
+                tbb_args.append('arch=arm64')
+                tbb_args.append('CONLY=gcc -target arm64-apple-macos11')
+                tbb_args.append('CPLUS=g++ -target arm64-apple-macos11')
         else:
             tbb_args.append('arch=aarch64')
             tbb_args.append('CONLY=aarch64-linux-gnu-gcc')
@@ -196,9 +201,14 @@ def cmdstan_args():
 
     if args.cross_compile:
         if host_os == 'Darwin':
-            build_args.append('CC=gcc -target arm64-apple-macos11')
-            build_args.append('CXX=g++ -target arm64-apple-macos11')
-            build_args.append('OS=Darwin')
+            if host_arm:
+                build_args.append('CC=gcc -target x86_64-apple-macos10.14')
+                build_args.append('CXX=g++ -target x86_64-apple-macos10.14')
+                build_args.append('OS=Darwin')
+            else:
+                build_args.append('CC=gcc -target arm64-apple-macos11')
+                build_args.append('CXX=g++ -target arm64-apple-macos11')
+                build_args.append('OS=Darwin')
         else:
             build_args.append('CC=aarch64-linux-gnu-gcc')
             build_args.append('CXX=aarch64-linux-gnu-g++')
@@ -287,9 +297,6 @@ check_output(output)
 
 if host_os == 'Windows':
     stop('Windows not supported yet')
-
-if host_os == 'Darwin' and host_arm:
-    stop('stanc3 not available for Mac ARM yet')
 
 target_arm = host_arm
 if args.cross_compile:

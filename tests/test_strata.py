@@ -38,7 +38,12 @@ class TestStrata:
 
     def test_cross_compile(self):
         self.run_strata(['examples/bernoulli.stan', '--cross-compile'])
-        assert 'x86' not in self.run_command(['file', 'dist/bin/bernoulli'])
+        output = self.run_command(['file', 'dist/bin/bernoulli'])
+        host_arch = platform.machine()
+        if 'arm' in host_arch or 'aarch' in host_arch:
+            assert 'arm' not in output
+        else:
+            assert 'x86' not in output
 
     def test_exists(self):
         Path('dist').mkdir()
