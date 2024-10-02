@@ -1,7 +1,8 @@
-## 0.1.2 (unreleased)
+## 0.2.0 (unreleased)
 
 - Added support for Mac ARM without cross-compiling
 - Updated CmdStan to 2.35.0
+- Dropped support for Python < 3.8
 
 ## 0.1.1 (2022-07-05)
 
