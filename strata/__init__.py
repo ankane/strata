@@ -12,18 +12,19 @@ import urllib.request
 __version__ = '0.1.0'
 
 # determine architecture
+host_os = platform.system()
 host_arch = platform.machine()
 host_arm = 'arm' in host_arch or 'aarch' in host_arch
 
 # when upgrading, check CLI11 and RapidJSON licenses
-cmdstan_version = '2.30.0'
+cmdstan_version = '2.35.0'
 if host_arm and host_os == 'Linux':
     # only difference is stanc
     cmdstan_url = 'https://github.com/stan-dev/cmdstan/releases/download/v' + cmdstan_version + '/cmdstan-' + cmdstan_version + '-linux-arm64.tar.gz'
-    cmdstan_checksum = '8ab1eaa83af100336e31fed1bcb854f30e7f775feb1274552fc706ed177969ef'
+    cmdstan_checksum = '87ea47f0576d581f0af7e3c1a2f9843d16a9c7b21ed94621c906f7a3183b410d'
 else:
     cmdstan_url = 'https://github.com/stan-dev/cmdstan/releases/download/v' + cmdstan_version + '/cmdstan-' + cmdstan_version + '.tar.gz'
-    cmdstan_checksum = '009c2ea0043aa4a91c03ac78932e64f3cff4faa3e73413a2e0269d5be2d8de6c'
+    cmdstan_checksum = '5bf668994e163419123d22bb7248ef1d30cbe2e7a14d50aa1c282b961f8172cd'
 
 
 def parse_args():
@@ -283,8 +284,6 @@ check_args(args)
 
 output = Path(args.output)
 check_output(output)
-
-host_os = platform.system()
 
 if host_os == 'Windows':
     stop('Windows not supported yet')
