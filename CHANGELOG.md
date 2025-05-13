@@ -1,3 +1,7 @@
+## 0.3.0 (unreleased)
+
+- Dropped support for Python < 3.9
+
 ## 0.2.0 (2024-10-01)
 
 - Added support for Mac ARM without cross-compiling
