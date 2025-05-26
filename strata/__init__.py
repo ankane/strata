@@ -9,7 +9,7 @@ import sys
 import tempfile
 import urllib.request
 
-__version__ = '0.1.0'
+__version__ = '0.3.0'
 
 # determine architecture
 host_os = platform.system()

@@ -1,4 +1,4 @@
-## 0.3.0 (unreleased)
+## 0.3.0 (2025-05-26)
 
 - Updated CmdStan to 2.36.0
 - Dropped support for Python < 3.9
