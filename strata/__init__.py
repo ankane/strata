@@ -17,14 +17,14 @@ host_arch = platform.machine()
 host_arm = 'arm' in host_arch or 'aarch' in host_arch
 
 # when upgrading, check CLI11 and RapidJSON licenses
-cmdstan_version = '2.35.0'
+cmdstan_version = '2.36.0'
 if host_arm and host_os == 'Linux':
     # only difference is stanc
     cmdstan_url = 'https://github.com/stan-dev/cmdstan/releases/download/v' + cmdstan_version + '/cmdstan-' + cmdstan_version + '-linux-arm64.tar.gz'
-    cmdstan_checksum = '87ea47f0576d581f0af7e3c1a2f9843d16a9c7b21ed94621c906f7a3183b410d'
+    cmdstan_checksum = 'ea475d79a1ed170c4fd5d76cd8a03da17af6be88c62c94c7590e4e5604598489'
 else:
     cmdstan_url = 'https://github.com/stan-dev/cmdstan/releases/download/v' + cmdstan_version + '/cmdstan-' + cmdstan_version + '.tar.gz'
-    cmdstan_checksum = '5bf668994e163419123d22bb7248ef1d30cbe2e7a14d50aa1c282b961f8172cd'
+    cmdstan_checksum = '464114fe5e905f0e52b595ee799b467f9ef153983a3465deff75b1e70fb74641'
 
 
 def parse_args():
