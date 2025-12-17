@@ -136,6 +136,6 @@ cd strata
 pip install -e .
 
 # for tests
-pip install -r requirements.txt
+pip install --group dev
 pytest
 ```

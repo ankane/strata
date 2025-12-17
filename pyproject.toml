@@ -21,3 +21,8 @@ strata = "strata:main"
 
 [tool.setuptools.package-data]
 strata = ["licenses/*"]
+
+[dependency-groups]
+dev = [
+    "pytest"
+]
