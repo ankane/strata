@@ -22,7 +22,7 @@ jobs:
 
       - if: ${{ startsWith(matrix.os, 'ubuntu') }}
         run: |
-          sudo apt update
-          sudo apt install gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
+          sudo apt-get update
+          sudo apt-get install gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
 
       - run: pytest
