@@ -6,16 +6,16 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - python: 3.13
-            os: macos-15
+          - python: 3.14
+            os: macos-26
           - python: 3.11
             os: macos-15-intel
           - python: 3.9
             os: ubuntu-22.04
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.python }}
       - run: pip install --group dev
