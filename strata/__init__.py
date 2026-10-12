@@ -67,7 +67,6 @@ def check_cross_compile():
                 stop('Cross-compiler not found. Run:\nsudo apt update\nsudo apt install gcc-aarch64-linux-gnu g++-aarch64-linux-gnu')
 
 
-
 def check_output(file):
     if file.exists() and not args.overwrite:
         stop('File exists: ' + str(file) + '. Use --overwrite to overwrite.')
