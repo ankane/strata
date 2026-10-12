@@ -24,7 +24,7 @@ if host_arm and host_os == 'Linux':
     cmdstan_checksum = 'c31e9f45a701c47f547381080ee804bf7e2428aace68eff68d4262b5c406aa63'
 else:
     cmdstan_url = 'https://github.com/stan-dev/cmdstan/releases/download/v' + cmdstan_version + '/cmdstan-' + cmdstan_version + '.tar.gz'
-    cmdstan_checksum = 'edbb117be6b50238680b4a1e02a48d0e76ff6669ba0e6c7dbd9d7db78b759f88'
+    cmdstan_checksum = '26d21c9737b35728e926f9b7a5d7362b38dc23e2e7d5e166c890e1fa74dac90c'
 
 
 def parse_args():
@@ -273,11 +273,11 @@ def write_output():
     copy(cmdstan_dir.joinpath('LICENSE'), licenses_dir.joinpath('cmdstan-license.txt'))
     copy(cmdstan_dir.joinpath('stan/LICENSE.md'), licenses_dir.joinpath('stan-license.txt'))
     copy(cmdstan_dir.joinpath('stan/lib/stan_math/LICENSE.md'), licenses_dir.joinpath('stan-math-license.txt'))
-    copy(cmdstan_dir.joinpath('stan/lib/stan_math/lib/boost_1.84.0/LICENSE_1_0.txt'), licenses_dir.joinpath('boost-license.txt'))
+    copy(cmdstan_dir.joinpath('stan/lib/stan_math/lib/boost_1.87.0/LICENSE_1_0.txt'), licenses_dir.joinpath('boost-license.txt'))
     copy(cmdstan_dir.joinpath('stan/lib/stan_math/lib/sundials_6.1.1/LICENSE'), licenses_dir.joinpath('sundials-license.txt'))
     copy(cmdstan_dir.joinpath('stan/lib/stan_math/lib/sundials_6.1.1/NOTICE'), licenses_dir.joinpath('sundials-notice.txt'))
-    copy(cmdstan_dir.joinpath('stan/lib/stan_math/lib/eigen_3.4.0/COPYING.MPL2'), licenses_dir.joinpath('eigen-mpl2-license.txt'))
-    copy(cmdstan_dir.joinpath('stan/lib/stan_math/lib/eigen_3.4.0/COPYING.BSD'), licenses_dir.joinpath('eigen-bsd-license.txt'))
+    copy(cmdstan_dir.joinpath('stan/lib/stan_math/lib/eigen_5.0.1/COPYING.MPL2'), licenses_dir.joinpath('eigen-mpl2-license.txt'))
+    copy(cmdstan_dir.joinpath('stan/lib/stan_math/lib/eigen_5.0.1/COPYING.BSD'), licenses_dir.joinpath('eigen-bsd-license.txt'))
     copy(tbb_dir.joinpath('LICENSE'), licenses_dir.joinpath('tbb-license.txt'))
     copy(tbb_dir.joinpath('third-party-programs.txt'), licenses_dir.joinpath('tbb-third-party-programs.txt'))
     copy(package_dir.joinpath('licenses/cli11-license.txt'), licenses_dir.joinpath('cli11-license.txt'))
