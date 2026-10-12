@@ -22,9 +22,14 @@ jobs:
           python-version: ${{ matrix.python }}
       - run: pip install --group dev
 
-      - if: ${{ runner.os == 'Linux' }}
+      - if: ${{ runner.os == 'Linux' && runner.arch == 'X64' }}
         run: |
           sudo apt-get update
           sudo apt-get install gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
+
+      - if: ${{ runner.os == 'Linux' && runner.arch == 'ARM64' }}
+        run: |
+          sudo apt-get update
+          sudo apt-get install gcc-x86-64-linux-gnu g++-x86-64-linux-gnu
 
       - run: pytest

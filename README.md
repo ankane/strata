@@ -85,6 +85,8 @@ On Ubuntu, this requires:
 ```sh
 sudo apt update
 sudo apt install gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
+# or
+sudo apt install gcc-x86-64-linux-gnu g++-x86-64-linux-gnu
 ```
 
 ## Reference

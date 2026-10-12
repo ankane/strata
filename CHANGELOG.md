@@ -1,5 +1,6 @@
 ## 0.3.1 (unreleased)
 
+- Added support for cross-compiling on Linux ARM
 - Updated CmdStan to 2.40.0
 
 ## 0.3.0 (2025-05-26)

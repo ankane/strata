@@ -58,12 +58,14 @@ def check_args(args):
 
 
 def check_cross_compile():
-    if host_arm and host_os != 'Darwin':
-        stop('Cannot cross-compile on Linux ARM yet')
-
     if host_os == 'Linux':
-        if not shutil.which('aarch64-linux-gnu-gcc') or not shutil.which('aarch64-linux-gnu-g++'):
-            stop('Cross-compiler not found. Run:\nsudo apt update\nsudo apt install gcc-aarch64-linux-gnu g++-aarch64-linux-gnu')
+        if host_arm:
+            if not shutil.which('x86_64-linux-gnu-gcc') or not shutil.which('x86_64-linux-gnu-g++'):
+                stop('Cross-compiler not found. Run:\nsudo apt update\nsudo apt install gcc-x86-64-linux-gnu g++-x86-64-linux-gnu')
+        else:
+            if not shutil.which('aarch64-linux-gnu-gcc') or not shutil.which('aarch64-linux-gnu-g++'):
+                stop('Cross-compiler not found. Run:\nsudo apt update\nsudo apt install gcc-aarch64-linux-gnu g++-aarch64-linux-gnu')
+
 
 
 def check_output(file):
@@ -131,9 +133,14 @@ def build_tbb():
                 tbb_args.append('CONLY=gcc -target arm64-apple-macos11')
                 tbb_args.append('CPLUS=g++ -target arm64-apple-macos11')
         else:
-            tbb_args.append('arch=aarch64')
-            tbb_args.append('CONLY=aarch64-linux-gnu-gcc')
-            tbb_args.append('CPLUS=aarch64-linux-gnu-g++')
+            if host_arm:
+                tbb_args.append('arch=x86_64')
+                tbb_args.append('CONLY=x86_64-linux-gnu-gcc')
+                tbb_args.append('CPLUS=x86_64-linux-gnu-g++')
+            else:
+                tbb_args.append('arch=aarch64')
+                tbb_args.append('CONLY=aarch64-linux-gnu-gcc')
+                tbb_args.append('CPLUS=aarch64-linux-gnu-g++')
 
     if args.static:
         tbb_args.append('extra_inc=big_iron.inc')
@@ -145,7 +152,10 @@ def build_tbb():
     # reduce size
     for file in tbb_lib_dir.glob('*.so.2'):
         if args.cross_compile:
-            run_command(['aarch64-linux-gnu-strip', '--strip-debug', file])
+            if host_arm:
+                run_command(['x86_64-linux-gnu-strip', '--strip-debug', file])
+            else:
+                run_command(['aarch64-linux-gnu-strip', '--strip-debug', file])
         else:
             run_command(['strip', '--strip-debug', file])
 
@@ -210,9 +220,14 @@ def cmdstan_args():
                 build_args.append('CXX=g++ -target arm64-apple-macos11')
                 build_args.append('OS=Darwin')
         else:
-            build_args.append('CC=aarch64-linux-gnu-gcc')
-            build_args.append('CXX=aarch64-linux-gnu-g++')
-            build_args.append('OS=Linux')
+            if host_arm:
+                build_args.append('CC=x86_64-linux-gnu-gcc')
+                build_args.append('CXX=x86_64-linux-gnu-g++')
+                build_args.append('OS=Linux')
+            else:
+                build_args.append('CC=aarch64-linux-gnu-gcc')
+                build_args.append('CXX=aarch64-linux-gnu-g++')
+                build_args.append('OS=Linux')
 
     return build_args
 
